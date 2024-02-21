@@ -3,11 +3,6 @@ package PSP04;
 import java.io.*;
 import java.net.*;
 
-/**
- * Modifica el ServerEjer2.java para el servidor permita trabajar de forma
- * concurrente con varios clientes
- */
-
 public class ServerEjer2 {
 
     private static final int PUERTO = 2000;
