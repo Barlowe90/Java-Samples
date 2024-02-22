@@ -1,4 +1,3 @@
-package PSP06;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,21 +20,22 @@ public class Ejercicio1 {
     }
 
     private void solicitudFichero() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el nombre del fichero (maximo 8 caracteres y extension de 3 caracteres): ");
-        String nombreFichero = sc.nextLine();
-        pat = Pattern.compile("[a-zA-Z0-9]{1,8}\\.[a-zA-Z0-9]{3}");
-        mat = pat.matcher(nombreFichero);
-        while (!mat.find()) {
-            System.out.println("El nombre del fichero no cumple con el formato, intente de nuevo: ");
-            nombreFichero = sc.nextLine();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Introduce el nombre del fichero (maximo 8 caracteres y extension de 3 caracteres): ");
+            String nombreFichero = sc.nextLine();
+            pat = Pattern.compile("[a-zA-Z0-9]{1,8}\\.[a-zA-Z0-9]{3}");
             mat = pat.matcher(nombreFichero);
+            while (!mat.find()) {
+                System.out.println("El nombre del fichero no cumple con el formato, intente de nuevo: ");
+                nombreFichero = sc.nextLine();
+                mat = pat.matcher(nombreFichero);
+            }
+            System.out.println("El contenido del fichero es: ");
+            mostrarContenido(nombreFichero);
+        } catch (Exception e) {
+            System.out.println("Se produjo un error al leer el archivo: " + e.getMessage());
+            e.printStackTrace();
         }
-        // Una vez que el nombre del fichero cumple con el formato, mostrar por salida
-        // estándar el contenido del fichero
-        System.out.println("El contenido del fichero es: ");
-        mostrarContenido(nombreFichero);
-        sc.close();
     }
 
     private void loginUsuario() {
