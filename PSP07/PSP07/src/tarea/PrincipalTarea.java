@@ -1,9 +1,12 @@
 package tarea;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -35,6 +38,7 @@ public class PrincipalTarea {
             SecretKeySpec clave = main.generarClave(semilla); // Genero clave a partir de la semilla
             main.encriptarYguardar(cadena, clave, fichero);
             System.out.println("Cadena encriptada y guardada en el fichero");
+            main.desEncriptarYmostrar(clave, fichero);
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(PrincipalTarea.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NoSuchPaddingException ex) {
@@ -66,5 +70,24 @@ public class PrincipalTarea {
         keyGen.init(128, numRandom);
         SecretKey claveSecreta = keyGen.generateKey();
         return new SecretKeySpec(claveSecreta.getEncoded(), "AES");
+    }
+
+    private void desEncriptarYmostrar(SecretKeySpec clave, String fichero) throws UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, FileNotFoundException, IOException, IllegalBlockSizeException, BadPaddingException {
+        Cipher cifrador = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cifrador.init(Cipher.DECRYPT_MODE, clave);
+
+        byte[] buffer = new byte[2048];
+        StringBuilder contenido = new StringBuilder();
+
+        try (InputStream in = new FileInputStream(fichero)) {
+            int bytesLeidos;
+            while ((bytesLeidos = in.read(buffer)) != -1) {
+                byte[] bytesDesencriptados = cifrador.update(buffer, 0, bytesLeidos);
+                contenido.append(new String(bytesDesencriptados, "UTF-8"));
+            }
+            byte[] bytesDesencriptadosFinales = cifrador.doFinal();
+            contenido.append(new String(bytesDesencriptadosFinales, "UTF-8"));
+        }
+        System.out.println(contenido.toString());
     }
 }
