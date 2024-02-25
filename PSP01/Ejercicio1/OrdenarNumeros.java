@@ -17,7 +17,6 @@ public class OrdenarNumeros {
     public static void main(String[] args) {
         Socket canal = null;
         BufferedReader entrada = null;
-        String valorEntrada = null;
 
         List<Integer> listaOrdenada = new LinkedList<>();
 
