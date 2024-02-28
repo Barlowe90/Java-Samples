@@ -1,4 +1,4 @@
-package PSP01.Ejercicio1;
+package multi_process.Ejercicio1;
 
 import java.net.*;
 import java.io.*;

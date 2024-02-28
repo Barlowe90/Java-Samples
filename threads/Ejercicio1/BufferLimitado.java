@@ -1,4 +1,4 @@
-package PSP02.Ejercicio1;
+package threads.Ejercicio1;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

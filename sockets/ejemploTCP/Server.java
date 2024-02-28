@@ -1,4 +1,4 @@
-package PSP03.ejemploTCP;
+package sockets.ejemploTCP;
 
 import java.io.*;
 import java.net.*;

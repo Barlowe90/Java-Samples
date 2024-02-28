@@ -1,4 +1,4 @@
-package PSP01.Ejercicio2;
+package multi_process.Ejercicio2;
 
 import java.io.File;
 import java.io.RandomAccessFile;

@@ -1,4 +1,4 @@
-package PSP02.prioridadesHilos;
+package threads.prioridadesHilos;
 
 public class Hilo extends Thread {
 

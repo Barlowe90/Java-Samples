@@ -1,4 +1,4 @@
-package PSP01.comunicarprocesossockets;
+package multi_process.comunicarprocesossockets;
 
 import java.io.*;
 import java.net.*;

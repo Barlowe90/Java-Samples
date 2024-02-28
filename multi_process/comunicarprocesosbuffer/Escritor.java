@@ -1,4 +1,4 @@
-package PSP01.comunicarprocesosbuffer;
+package multi_process.comunicarprocesosbuffer;
 
 public class Escritor {
     public static void main(String[] args) {

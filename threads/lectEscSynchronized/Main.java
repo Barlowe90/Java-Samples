@@ -1,4 +1,4 @@
-package PSP02.lectEscSynchronized;
+package threads.lectEscSynchronized;
 
 import java.util.concurrent.Semaphore;
 

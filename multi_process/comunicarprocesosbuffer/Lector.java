@@ -1,4 +1,4 @@
-package PSP01.comunicarprocesosbuffer;
+package multi_process.comunicarprocesosbuffer;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

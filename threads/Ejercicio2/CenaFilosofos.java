@@ -1,4 +1,4 @@
-package PSP02.Ejercicio2;
+package threads.Ejercicio2;
 
 public class CenaFilosofos {
 

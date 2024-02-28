@@ -1,4 +1,4 @@
-package PSP03.ejemploUDP;
+package sockets.ejemploUDP;
 
 import java.net.*;
 import java.io.*;

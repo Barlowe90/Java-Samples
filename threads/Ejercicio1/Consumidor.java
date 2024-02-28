@@ -1,4 +1,4 @@
-package PSP02.Ejercicio1;
+package threads.Ejercicio1;
 
 public class Consumidor extends Thread {
 

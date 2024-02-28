@@ -1,4 +1,4 @@
-package PSP03.Ejercicio3_1;
+package sockets.Ejercicio3_1;
 
 import java.io.*;
 import java.net.*;

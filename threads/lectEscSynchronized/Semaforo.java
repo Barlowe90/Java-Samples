@@ -1,4 +1,4 @@
-package PSP02.lectEscSynchronized;
+package threads.lectEscSynchronized;
 
 public class Semaforo {
     private final static int LIBRE = 0;

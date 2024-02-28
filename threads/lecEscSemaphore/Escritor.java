@@ -1,4 +1,4 @@
-package PSP02.lecEscSemaphore;
+package threads.lecEscSemaphore;
 
 import java.util.concurrent.Semaphore;
 

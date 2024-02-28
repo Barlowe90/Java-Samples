@@ -1,4 +1,4 @@
-package PSP02.crearHilos;
+package threads.crearHilos;
 
 public class Hilo_Runnable implements Runnable {
     public void run() {
