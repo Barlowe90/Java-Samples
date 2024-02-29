@@ -7,6 +7,7 @@ public class ServerEjer1 {
 
     private static final int MAX_CLIENTES_SIMULTANEOS = 10;
     private static final int PUERTO = 2000;
+    private static Semaphore semaforo = new Semaphore(MAX_CLIENTES_SIMULTANEOS);
 
     public static void main(String[] args) {
         ServerSocket server = null;
@@ -18,23 +19,21 @@ public class ServerEjer1 {
             Socket skCliente = null;
             ServerHiloEjer1 hilo = null;
 
-            while (true && cont < MAX_CLIENTES_SIMULTANEOS) {
+            while (true) {
+                semaforo.acquire(); // Adquirir un permiso del semáforo
                 skCliente = server.accept();
                 System.out.println("Cliente conectado " + cont + " veces");
-                cont++;
                 hilo = new ServerHiloEjer1(skCliente, cont);
                 hilo.start();
-
             }
 
-            if (cont >= MAX_CLIENTES_SIMULTANEOS) {
-                System.out.println("Se ha alcanzado el límite de clientes simultáneos");
-            }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
-                server.close();
+                if (server != null) {
+                    server.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
