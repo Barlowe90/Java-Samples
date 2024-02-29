@@ -41,8 +41,10 @@ public class ServerHiloEjer1 extends Thread {
             out.close();
             skCliente.close();
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
+        } finally {
+            ServerEjer1.semaforo.release();
         }
 
     }

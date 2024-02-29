@@ -2,6 +2,7 @@ package ejercicio1;
 
 import java.io.*;
 import java.net.*;
+import java.util.concurrent.Semaphore;
 
 public class ServerEjer1 {
 
@@ -27,7 +28,7 @@ public class ServerEjer1 {
                 hilo.start();
             }
 
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         } finally {
             try {
