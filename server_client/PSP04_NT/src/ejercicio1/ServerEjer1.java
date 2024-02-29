@@ -8,7 +8,7 @@ public class ServerEjer1 {
 
     private static final int MAX_CLIENTES_SIMULTANEOS = 10;
     private static final int PUERTO = 2000;
-    private static Semaphore semaforo = new Semaphore(MAX_CLIENTES_SIMULTANEOS);
+    static Semaphore semaforo = new Semaphore(MAX_CLIENTES_SIMULTANEOS);
 
     public static void main(String[] args) {
         ServerSocket server = null;
