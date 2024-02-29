@@ -1,4 +1,4 @@
-package threads.Ejercicio2;
+package PSP02_hilos.Ejercicio2;
 
 import java.util.concurrent.Semaphore;
 
